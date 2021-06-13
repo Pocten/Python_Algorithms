@@ -1,0 +1,17 @@
+Řazení čísel
+Vytvořte funcki sortNumbers(), která na vstupu přijme dva parametry (pole a stringovou hodnotu). Stringová hodnota může být buď ASC nebo DESC a určuje, zdali bude vstupní pole seřazeno vzestupně ši sestupně. Pole, které funkce obdrží jako parametr může být jakékoliv pole libovolné délky, v kterém jsou pouze číselné hodnoty. Funkce vrátí pole seřazených hodnot.
+
+Příklad
+sortNumbers([4,2,3], 'ASC') vrátí [2,3,4]
+
+sortNumbers([4,2,3], 'DESC') vrátí [4,3,2]
+
+Řazení dat
+Řadící algoritmus, který používá k seřazení komparativní přístup může být aplikován i na jiné datové typy než čísla. Představte si, že máte pole výrobců aut: manufactures = ['Ford', 'BMW', 'Audi'] a chcete toto pole seřadit. Bohužel zatím nevíme na základě jakých kritérií toto pole seřadit, proto potřebujeme nejprve definovat řadící kritérium. Budeme tedy řadit podle reputace značky. Vzhledem k tomu, že vás objekty čekají až v dalším semestru, tak vytvoříme pole čísel, které bude odrážet reputaci: reputation = [2, 5, 6]. Ford má tedy reputaci 2, BMW 5 a Audi 6.
+
+Funkce sortData() na vstupu přijímá tři parametry: váhy (reputation), data (manufactures) a stringovou hodnotu (ASC, DESC). Algoritmus provede seřazení dat podle jejich vah a v případě ASC vrátí vzestupně seřazené značky podle reputaci v případě DESC sestupně seřazené značky podle reputace.
+
+Příklad
+sortData([2,5,6], ['Ford','BMW','Audi'], 'ASC') vrátí ['Ford','BMW','Audi']
+
+sortData([3,2,4],['Ford','BMW','Audi'], 'DESC') vrátí ['Audi','Ford','BMW']

@@ -1,0 +1,3 @@
+Cílem úkolu je vygenerovat list všech permutací daných prvků. Tzn. například pro prvky [1, 2, 3] vrátit [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]].
+
+V řešení využijte především rekurzi a metody pracující s listy. Problém si zkuste nejdříve vyřešit na papíře. Najděte si deterministický postup pro generování permutací. Inspirujte se například obrázkem uvedeným níže (barvami se nenechte zmást). Odpovězte si na otázky: Co má funkce vrátit pro jeden prvek? Pro dva prvky? A jak toho využít, když budeme uvažovat prvky tři?

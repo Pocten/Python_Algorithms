@@ -1,0 +1,37 @@
+Edge
+Třída reprezentující hranu v grafu. Tato třída má následující atributy:
+
+source - numerický identifikátor vrcholu, v kterém hrana začíná (celočíselný typ)
+target - numerický identifikátor vrcholu, v kterém hrana končí (celočíselný typ)
+weight - váha hrany (celočíselný typ)
+Třída musí mít metodu __init__(self, source, target, weight) která je zavolána při vytvoření třídy a příjímá ID zdrojového vrcholu (source), ID cílového vrcholu (target) a váhu hrany (weight). Nastavení ostatních parametrů (pokud je potřebujete) je již ve vaší režii. Můžete jejich nastavení přidat do metody __init__(), nebo můžete využít metodu pro inicializaci grafu createGraph().
+
+
+Vertex
+Třída reprezentující vrchol v grafu. Tato třída má následující atributy:
+
+id - numerický identifikátor vrcholu (celočíselný typ)
+name - jméno vrcholu (znakový řetězec)
+edges - hrany, které začínají v tomto vrcholu (seznam typu Edge)
+minDistance - minimální vzdálenost, za kterou se lze dostat do tohoto vrcholu z vrcholu, nad kterým byla provedena funkce computePath() (celočíselný typ)
+previousVertex - předchozí vrchol - vrchol, přes který vede cesta do tohoto vrcholu pro minimální cestu (typ Vertex)
+Třída musí mít metodu __init__(self, id, name), tj. konstruktor, jež nastavuje vrcholu jeho id (id) a název (name). Nastavení ostatních parametrů (pokud je potřebujete) je ve vaší režii.
+
+
+Dijkstra
+Třída reprezentující Dijkstrův algoritmus. Tato třída má pouze jednu proměnnou
+
+vertexes - vrcholy grafu, nad kterými chceme provádět Dijkstrův algoritmus
+Třída má tyto metody:
+
+createGraph(self, vertexes, edgesToVertexes) - vytvoří graf ze zadaných vrcholů. Vertexes je seznam objektů typu Vertex a edgesToVertexes je seznam objektů typu Edge.
+getVertexes(self) - metoda vrátí vrcholy, nad kterými je možné provést Dijkstrův algoritmus.
+computePath(self, sourceId) - metoda nalezne nejkratší cesty z vrcholu se sourceId do všech vrcholů v grafu. Metoda nic nevrací, ale po skončení operace by měly mít všechny vrcholy vyplněnou proměnou minDistance, která reprezentuje minimální vzdálenost do daného vrcholu.
+getShortestPathTo(self, targetId) - metoda vrátí list vrcholů, přes které vede z vrcholu sourceId - nad kterými byla spuštěna operace computePath() - do vrcholu specifikovaného v targetId.
+resetDijkstra(self) - tato metoda vynuluje aktuální výsledky po průchodu Dijkstrovým algoritmem. Metoda nerozpojí či nezahodí graf, pouze ho vrátí do stavu, v jakém byl před operací computePath()
+Proměnné sourceId a targetId jsou číselné. Je nutné si tedy zadaný graf uložit a poté vrcholy najít na základě jejich ID.
+
+Dijkstrův algoritmus počítá s tím, že vzdálenost vrcholů, které nezpracoval je nekonečno. V Pythonu ho prosím reprezentujte takto: float('inf')
+
+Testování
+Náš skript bude testování provádět obdobně jako je tomu v referenčním případě s tím rozdílem, že z vaší strany není nutné cokoliv vypisovat. Testovací skript si vytvoří instanci Dijkstra() a bude nad ní postupně volat metody, které chce otestovat. Poté si vždy pomocí metody getVertexes() získá aktuální reprezentaci grafu a tu porovná s referenčním řešením.

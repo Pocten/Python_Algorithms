@@ -1,0 +1,40 @@
+Vaším úkolem je vytvořit jednoduchou databázi (dále jen db) aut. K implementaci použijte spojový seznam. Rozhraní databáze aut má funkci na její vytvoření z předem definovaného pole, funkci na vložení automobilu do db, funkci na úpravu názvu již vloženého automobilu, funkci na úpravu značky již vloženého automobilu a funkci na změny stavu již vloženého automobilu. Pro zjednodušení není umožněno měnit cenu automobilu. Dále rozhraní disponuje funkcí, která umí vypočítat celkovou hodnotu aut v showroomu. Rozhraní má také funkci, která vrátí hlavičku spojového seznamu, spojový seznam samotný a funkci, která databázi vymaže. Více informací o funkcích uvádíme níže.
+
+Pro databázi platí následující omezení: V db nejsou žádná ID vícekrát. V db jsou záznamy vždy seřazeny podle ceny od nejnižší po nejvyšší a to v pořadí v jakém byly vkládány.
+
+Pro spojový seznam platí následující omezení: Každý uzel vidí na svého předka a na svého následníka. V každém uzlu jsou uložena všechna data o konkrétním automobilu.
+
+Car
+Třída Car má následující atributy: identification, name, brand, price, active:
+
+identification - jednoznačný identifikátor vozu (int)
+name - název vozu (string)
+brand - značka (string)
+price - cena (int)
+active - příznak, zdali je vůz aktivní (boolean)
+Instance třídy Car představují data, jež jsou uložena v každém uzlu (tj. Node).
+
+Node
+Třída Node reprezentuje uzel ve spojovém seznamu. V našem případě má následující atributy: nextNode, prevNode, data. Níže je popis jednotlivých proměnných:
+
+nextNode - další uzel (typu Node) v cestě, v případě že žádný další uzel neexistuje, pak je hodnota None.
+prevNode - předchozí uzel (typu Node) v cestě, v případě že předchozí uzel neexistuje, pak je hodnota None.
+data - data, která jsou uložena v aktuálním uzlu (v našem případě typu Car) Každý uzel musí obsahovat data.
+V případě posledního uzlu ve spojovém seznamu je hodnota nextNode = None, v případě prvního uzlu ve spojovém seznamu je hodnota prevNode = None, v případě jednoprvkového seznamu je v proměných hlavy (head) spojového seznamu hodnota nextNode = prevNode = None. V případě prázdného spojového seznamu je hodnota hlavy None.
+
+LinkedList
+Třída LinkedList reprezentuje spojový seznam a drží si hlavičku (head) spojového seznamu, pomocí které lze projít celý spojový seznam, to jest prohledat db. Tato třída může obsahovat i metody, které pracují se spojovým seznamem. Spojový seznam tedy implementujete jako třídu s vlastními atributy, a obsluhu db jako funkce v souboru showroom.py.
+
+Funkce
+Níže je seznam funkcí, které musí databáze poskytovat (očekáváme je v souboru showroom.py), včetně jejich definice a popisu.
+
+init(cars) - příjímá pole objektů typu Car a na jejich základě vytvoří spojový seznam.
+getDatabase() - vrátí celý spojový seznam (LinkedList).
+getDatabaseHead() - vrátí hlavičku spojového seznamu (Node).
+clean() - vyčistí spojový seznam.
+add(car) - na vstupu přijímá objekt typu Car a vloží ho na správné místo ve spojovém seznamu.
+updateName(identification, name) - na vstupu přijímá identifikátor vozu (identification typu int) a nové jméno vozu (name typu string). Ve spojovém seznamu najde auto se daným indetifikátorem a nahradí u něj jméno.
+updateBrand(identification, brand) - na vstupu přijímá identifikátor vozu a novou značku vozu (brand typu string). Ve spojovém seznamu najde auto se daným indentifikátorem a nahradí u něj značku.
+activateCar(identification) - na vstupu přijímá identifikátor vozu. Ve spojovém seznamu, najde auto se stejným identifikátorem a nastaví jeho atribut active = True.
+deactivateCar(identification) - na vstupu přijímá identifikátor vozu a ve spojovém seznamu, najde auto se stejným identifikátorem a nastaví jeho atribut active = False.
+calculateCarPrice() - vrátí aktuální cenu všech vozů ve spojovém seznamu. Cena všech vozů se počítá jako součet cen aktivních vozů (tj. active == True).
